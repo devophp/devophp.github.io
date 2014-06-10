@@ -4,15 +4,17 @@
     <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
     <head>
         <meta charset="utf-8">
-        <title>Hello Devophp - Devophp Website</title>
+        <title>Agent - Devophp Website</title>
         <meta name="author" content="devophp">
 
-                <meta name="description" content="Hello world from the Devophp project!
-">
+                <meta name="description" content="The Devophp Agent Component
+
+The Agent is a crucial component, as it is installed on all the nodes you wish to control through Devophp.
+The Agent rece">
         
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-                <link rel="canonical" href="/blog/2014/06/10/hello-devophp.html">
+                <link rel="canonical" href="/agent.html">
         <link href="/favicon.png" rel="icon">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
         <link rel="stylesheet" href="/stylesheets/devophp.css">
@@ -59,15 +61,68 @@
         </nav>
         <div id="content">
             <div class="container">
-                <div>
-    <article class="hentry" role="article">
-                                                <h1 class="entry-title">Hello Devophp</h1>
-                      </header>
-                            <div class="entry-content"><p>Hello world from the Devophp project!</p>
-</div>
-            </article>
-</div>
-            </div>
+                                <h1>The Devophp Agent Component</h1>
+
+<p>The <strong>Agent</strong> is a crucial component, as it is installed on all the nodes you wish to control through Devophp.
+The <strong>Agent</strong> receives commands to execute on the node, for example from the <a href="/monitor">Monitor</a>.</p>
+
+<h2>Getting started</h2>
+
+<h3>Prerequisites</h3>
+
+<p>To run the agents on your nodes, you&#8217;ll need the following packages installed:</p>
+
+<ul>
+<li>php-cli</li>
+<li>git</li>
+<li>composer </li>
+</ul>
+
+<h3>Installation</h3>
+
+<p>Installing the agent on your nodes is easy. simply follow these instructions:</p>
+
+<pre><code>mkdir -p /usr/local/devophp/
+cd /usr/local/devophp/
+git clone git@github.com:devophp/agent.git
+cd agent
+composer install
+</code></pre>
+
+<h3>Configuration</h3>
+
+<p>//TODO: Document the config file</p>
+
+<h3>Starting the agent</h3>
+
+<p>Start the agent using the following command:</p>
+
+<pre><code>./bin/console agent:daemon
+</code></pre>
+
+<h2>Communication</h2>
+
+<p>The Agent only communicates directly with a message queue. It subscribes to a topic to watch for commands.
+Once a command is sent to the topic (by the <a href="/monitor">Monitor</a>), the Agent will execute the command.</p>
+
+<p>The Agent can report back the output of the command back to the message queue.</p>
+
+<h2>Plugins</h2>
+
+<p>The <strong>Agent</strong> in itself does not provide any direct functionality.
+All functionality is implemented by Agent plugins.</p>
+
+<h3>Available plugins</h3>
+
+<h4>Nagios plugin</h4>
+
+<p>The Nagios Agent Plugin implements the <code>nagios:check</code> command.</p>
+
+<p>By sending this command to the agent, you can execute nagios plugins (called &#8216;checks&#8217;).
+Each Nagios check outputs a simple statuscode (OK, Warning or Critical) and optional details, which will be
+reported back to the Monitor.</p>
+
+                            </div>
         </div>
         <footer role="contentinfo">
             <div class="container">
