@@ -25,7 +25,7 @@ It provides a core platform for communication that can be used for">
     <body   >
         <header role="banner">
             <div class="container">
-                <h1>Devophp</h1>
+                <h1>Devop<b><i>hp</i></b></h1>
                 <h2>Tools for Devops written in PHP</h1>
             </div>
         </header>    
@@ -64,13 +64,31 @@ It provides a core platform for communication that can be used for">
                                 <h1>About Devophp</h1>
 
 <p>Devophp is a set of decoupled devops components, implemented in PHP.
-It provides a core platform for communication that can be used for a wide range of practical solutions.</p>
+It provides a core platform for communication that can be used for a wide range of practical solutions. For example:</p>
 
-<p>The code-base is designed with simplicity and extensibility in mind.</p>
+<ul>
+<li>System monitorring</li>
+<li>Distributed firewall management</li>
+<li>Metrics collection</li>
+<li>Configuration management</li>
+<li>Application deployment</li>
+<li>Distributed commands</li>
+<li>&#8230; etc, it&#8217;s easy to add new plugins</li>
+</ul>
+
+<p>Think of it as nice blend between nagios, puppet, collectd, statsd, capistrano, mcollective, shipyard, security groups, cloudformation and more.</p>
+
+<p>The system is message-based, meaning that all communication flows through a message broker. There are no complicated firewall rules to set up on your nodes, all traffic is outbound to the message broker.</p>
+
+<p>The code-base is designed with simplicity and extensibility in mind. It&#8217;s easy to build new functionality on the existing components.</p>
 
 <p>Projects can be used together for a full solution, or individually, as building blocks.</p>
 
 <h2>The big picture</h2>
+
+<p><center>
+<img src="images/devophp_overview.svg" style="width: 75%;" />
+</center></p>
 
 <p>The 3 primary components of a Devophp setup are:</p>
 
